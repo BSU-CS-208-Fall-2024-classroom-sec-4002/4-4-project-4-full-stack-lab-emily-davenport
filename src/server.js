@@ -20,7 +20,6 @@ app.use(express.urlencoded({ extended: false }))
 
 app.get('/', function (req, res) {
     console.log('GET called')
-    res.render('index')
     const local = { tasks: [] }
     db.each(`SELECT id, task FROM todo`, (err, row) => {
         if (err) {
