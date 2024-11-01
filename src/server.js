@@ -47,8 +47,10 @@ app.post('/', function (req, res) {
 
 app.post('/delete', function (req, res) {
     console.log('deleting todo item')
-    //TODO you will need to delete here
-
+    const statement = db.prepare(`DELETE FROM todo WHERE id = (?)`)
+    statement.run(req.body.id)
+    statement.finalize(handleSqlError)
+    res.render('index')
 })
 
 // Start the web server
