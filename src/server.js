@@ -42,3 +42,9 @@ app.post('/delete', function (req, res) {
 app.listen(3000, function () {
     console.log('Listening on port 3000...')
 })
+
+const handleSqlError = error => {
+    if (error) {
+        console.error(`Error in SQL statement: ${error}`)
+    }
+}
