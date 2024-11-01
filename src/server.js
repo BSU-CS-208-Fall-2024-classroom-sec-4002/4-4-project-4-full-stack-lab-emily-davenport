@@ -28,8 +28,10 @@ app.get('/', function (req, res) {
 
 app.post('/', function (req, res) {
     console.log('adding todo item')
-    //TODO You will need to to do a SQL Insert here
-
+    const statement = db.prepare(`INSERT INTO todo (task) VALUES (?)`)
+    statement.run(req.body.newItem)
+    statement.finalize(handleSqlError)
+    res.render('index')
 })
 
 app.post('/delete', function (req, res) {
