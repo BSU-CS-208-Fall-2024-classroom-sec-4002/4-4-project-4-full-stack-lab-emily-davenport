@@ -14,7 +14,7 @@ body
         h2 To-do List
         ul
         - for (let i = 0; i < tasks.length; i++)
-            li = tasks[i].id + " " + tasks[i].task
+            li= tasks[i].id + " " + tasks[i].task
                 form(action="/delete" method="POST")
                     input(type="hidden" name="id" value=tasks[i].id)
                     input(type="submit" value="Delete")
