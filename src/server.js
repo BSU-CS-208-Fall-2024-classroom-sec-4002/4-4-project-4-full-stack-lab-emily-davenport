@@ -19,8 +19,6 @@ app.set('view engine', 'pug')
 app.use(express.urlencoded({ extended: false }))
 
 app.get('/', function (req, res) {
-    //TODO You will need to do a SQL select here
-    //TODO You will need to update the code below!
     console.log('GET called')
     res.render('index')
     const local = { tasks: [] }
