@@ -23,7 +23,20 @@ app.get('/', function (req, res) {
     //TODO You will need to update the code below!
     console.log('GET called')
     res.render('index')
-
+    const local = { tasks: [] }
+    db.each(`SELECT id, task FROM todo`, (err, row) => {
+        if (err) {
+            handleSqlError(err)
+        } else {
+            local.tasks.push({ id: row.id, task: row.task })
+        }
+    }, (err, numrows) => {
+        if (err) {
+            handleSqlError(err)
+        } else {
+            res.render('index', local)
+        }
+    })
 })
 
 app.post('/', function (req, res) {
