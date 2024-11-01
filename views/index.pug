@@ -10,3 +10,11 @@ body
             label(for="newItem") Add a to-do item: 
             input(type="text" id="newItem" name="newItem")
             input(type="submit" value="Add")
+    section
+        h2 To-do List
+        ul
+        - for (let i = 0; i < tasks.length; i++)
+            li = tasks[i].id + " " + tasks[i].task
+                form(action="/delete" method="POST")
+                    input(type="hidden" name="id" value=tasks[i].id)
+                    input(type="submit" value="Delete")
