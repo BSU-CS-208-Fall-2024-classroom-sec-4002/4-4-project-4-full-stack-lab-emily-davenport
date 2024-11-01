@@ -2,7 +2,11 @@ doctype html
 link(rel='stylesheet' href='css/style.css')
 
 head
-    title My First Full Stack
+    title Simple To-do App
 body
-    h1 Simple TODO APP
-    p TODO: Complete the app!
+    section
+        h1 Simple To-do App
+        form(action="js/main.js")
+            label(for="newItem") Add a to-do item: 
+            input(type="text" id="newItem" name="newItem")
+            input(type="submit" value="Add")
