@@ -32,3 +32,34 @@ section.list {
 section.list ul {
     overflow: auto;
 }
+
+/* Styles for the "Add a to-do item" section */
+
+.newItem {
+    text-align: center;
+}
+
+.newItem label {
+    font-weight: bold;
+}
+
+.newItem input[type="text"] {
+    margin: 0 1rem;
+    padding: 0.5rem;
+    border-radius: 50px;
+    border: 2px solid #000;
+}
+
+.newItem input[type="submit"] {
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    background-color: #a3e895;
+    transition: background-color 400ms;
+    color: #000;
+    border: 2px solid #000;
+}
+
+.newItem input[type="submit"]:hover {
+    background-color: #4FCC50;
+    cursor: pointer;
+}
