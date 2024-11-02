@@ -10,7 +10,7 @@ body
             label(for="newItem") Add a to-do item: 
             input(type="text" id="newItem" name="newItem")
             input(type="submit" value="Add")
-    section
+    section.list
         h2 To-do List
         ul
             - for (let i = 0; i < tasks.length; i++)
