@@ -18,4 +18,4 @@ body
                     p= `[${tasks[i].id}] ${tasks[i].task}`
                     form(action="/delete" method="POST")
                         input(type="hidden" name="id" value=tasks[i].id)
-                        input.button(type="submit" value="Delete")
+                        input.button.delete(type="submit" value="Delete")
