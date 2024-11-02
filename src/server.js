@@ -27,7 +27,7 @@ app.post('/', function (req, res) {
     console.log('adding todo item')
     const statement = db.prepare(`INSERT INTO todo (task) VALUES (?)`)
     statement.run(req.body.newItem)
-    statement.finalize(handleSqlError)
+    statement.finalize(err => err && handleSqlError(err))
     renderWithTodoItems(res)
 })
 
@@ -35,7 +35,7 @@ app.post('/delete', function (req, res) {
     console.log('deleting todo item')
     const statement = db.prepare(`DELETE FROM todo WHERE id = (?)`)
     statement.run(req.body.id)
-    statement.finalize(handleSqlError)
+    statement.finalize(err => err && handleSqlError(err))
     renderWithTodoItems(res)
 })
 
@@ -44,11 +44,7 @@ app.listen(3000, function () {
     console.log('Listening on port 3000...')
 })
 
-const handleSqlError = error => {
-    if (error) {
-        console.error(`Error in SQL statement: ${error}`)
-    }
-}
+const handleSqlError = error => console.error(`Error in SQL statement: ${error}`)
 
 const renderWithTodoItems = res => {
     const local = { tasks: [] }
