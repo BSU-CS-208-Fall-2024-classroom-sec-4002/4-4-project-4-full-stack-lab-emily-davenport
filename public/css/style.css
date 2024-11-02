@@ -33,6 +33,18 @@ section.list ul {
     overflow: auto;
 }
 
+/* Button styles */
+.button {
+    border: 2px solid #000;
+    border-radius: 0.25rem;
+    padding: 0.35rem 1rem;
+    transition: background-color 250ms, border-color 250ms;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
 /* Styles for the "Add a to-do item" section */
 
 .newItem {
@@ -50,16 +62,13 @@ section.list ul {
     border: 2px solid #000;
 }
 
-.newItem input[type="submit"] {
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    background-color: #a3e895;
-    transition: background-color 400ms;
-    color: #000;
-    border: 2px solid #000;
+.add {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
 }
 
-.newItem input[type="submit"]:hover {
-    background-color: #4FCC50;
-    cursor: pointer;
+.add:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
 }

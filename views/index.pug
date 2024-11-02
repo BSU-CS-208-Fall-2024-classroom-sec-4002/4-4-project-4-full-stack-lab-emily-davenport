@@ -9,7 +9,7 @@ body
         form.newItem(action="/" method="POST")
             label(for="newItem") Add a to-do item: 
             input(type="text" id="newItem" name="newItem")
-            input(type="submit" value="Add")
+            input.button.add(type="submit" value="Add")
     section.list
         h2 To-do List
         ul
