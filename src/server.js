@@ -1,14 +1,17 @@
 import express from 'express'
 import sql from 'sqlite3'
+import fs from 'node:fs'
 
 const sqlite3 = sql.verbose()
 
-// Create an in memory table to use
-const db = new sqlite3.Database(':memory:')
+// Loads the database from a file or creates it if it doesn't exist
+if (!fs.existsSync('src/db') || !fs.lstatSync('src/db').isDirectory()) {
+    fs.mkdirSync('src/db')
+}
+const db = new sqlite3.Database('src/db/todo.db')
 
-// This is just for testing you would not want to create the table every
-// time you start up the app feel free to improve this code :)
-db.run(`CREATE TABLE todo (
+// Creates todo table if it doesn't already exist
+db.run(`CREATE TABLE IF NOT EXISTS todo (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     task TEXT NOT NULL)`)
 
